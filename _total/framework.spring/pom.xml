@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
-<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd" xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
@@ -26,8 +26,8 @@
 		<!-- 导入jsp servlet规范jar包 -->
 		<dependency>
 			<groupId>javax.servlet</groupId>
-			<artifactId>servlet-api</artifactId>
-			<version>3.0-alpha-1</version>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.servlet.jsp</groupId>
@@ -117,8 +117,38 @@
 			<artifactId>jackson-annotations</artifactId>
 			<version>2.6.5</version>
 		</dependency>
-		<!-- <dependency> <groupId>org.codehaus.jackson</groupId> <artifactId>jackson-core-asl</artifactId> <version>1.9.13</version> </dependency> <dependency> <groupId>org.codehaus.jackson</groupId> 
-			<artifactId>jackson-mapper-asl</artifactId> <version>1.9.13</version> </dependency> -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>2.6.5</version>
+		</dependency>
+
+		<!-- 导入Gson json工具包 -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!-- 导入对atom,rss支持工具包 -->
+		<dependency>
+			<groupId>com.rometools</groupId>
+			<artifactId>rome</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+		
+		<!-- 导入spring mvc 注解规范javax及验证 -->
+		<dependency>
+			<groupId>javax.validation</groupId>
+			<artifactId>validation-api</artifactId>
+			<version>1.1.0.Final</version>
+		</dependency>
+		<!-- 导入spring mvc validator对javax规范的实现jar -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-validator</artifactId>
+			<version>5.2.4.Final</version>
+		</dependency>
 
 		<!-- 导入@Getter @Setter自动编码工具jar -->
 		<dependency>
@@ -131,8 +161,7 @@
 	</dependencies>
 
 	<build>
-		<!-- <outputDirectory>E:\workspaces_java\Git\total.framework\_total\framework.spring\target\classes</outputDirectory> <outputDirectory>target1/classes</outputDirectory> 
-			<testOutputDirectory>E:\workspaces_java\Git\total.framework\_total\framework.spring\target\test-classes</testOutputDirectory> <directory>E:\workspaces_java\Git\total.framework\_total\framework.spring\target</directory> -->
+
 		<finalName>framework.spring</finalName>
 
 		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>

@@ -7,8 +7,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.springframework.web.servlet.view.AbstractView;
 
-import cn.vfire.framework.spring.mvc.model.DemoObjModel;
-
 
 public class JsonView extends AbstractView {
 
