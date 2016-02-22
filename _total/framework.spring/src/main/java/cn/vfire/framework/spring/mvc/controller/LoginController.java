@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import cn.vfire.framework.spring.mvc.model.DemoObjModel;
-import cn.vfire.framework.spring.mvc.view.JsonView;
 
 @RestController
 public class LoginController {
