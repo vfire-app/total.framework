@@ -1,0 +1,99 @@
+<?xml version="1.0"?>
+<project xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+
+	<modelVersion>4.0.0</modelVersion>
+
+	<parent>
+		<!-- 因为是 _total项目的子项目 -->
+		<groupId>cn.vfire.frameword</groupId>
+		<artifactId>total</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+
+	<artifactId>framework_spring</artifactId>
+	<packaging>war</packaging>
+	<name>framework_spring Maven Webapp</name>
+	<url>http://maven.apache.org</url>
+
+	<dependencies>
+	
+		<!-- 导入junit jar包 -->
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>3.8.1</version>
+			<scope>test</scope>
+		</dependency>
+		
+		<!-- 导入jsp servlet规范jar包 -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>3.0.1</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet.jsp</groupId>
+			<artifactId>jsp-api</artifactId>
+			<version>2.2</version>
+		</dependency>
+		
+		<!-- 导入spring框架依赖jar包 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<!-- 该jar用于spring 支持 junit测试 -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-test</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+		<dependency>
+			<!-- 该jar用于spring对其他的一些工具框架的支持 -->
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-context-support</artifactId>
+			<version>4.2.4.RELEASE</version>
+		</dependency>
+
+	</dependencies>
+
+
+	<build>
+
+		<finalName>framework_spring</finalName>
+		
+		<!-- 修改maven编译输出目录 -->
+		<outputDirectory>src/main/webapp/WEB-INF/classes</outputDirectory>
+		<testOutputDirectory>src/main/webapp/WEB-INF/classes</testOutputDirectory>
+
+
+		<plugins>
+			<!-- 添加一个mavne的插件，作用是在我通过maven发布的时候，能将依赖的jar复制一份到我指定的目录下。（个人比较懒） -->
+			<plugin>
+				<artifactId>maven-antrun-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>copy-lib-src-webapps</id>
+						<phase>package</phase>
+						<configuration>
+							<tasks>
+								<delete dir="src/main/webapp/WEB-INF/lib" />
+								<copy todir="src/main/webapp/WEB-INF/lib">
+									<fileset dir="${project.build.directory}\${project.build.finalName}\WEB-INF\lib">
+										<include name="*" />
+									</fileset>
+								</copy>
+							</tasks>
+						</configuration>
+						<goals>
+							<goal>run</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>

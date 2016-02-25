@@ -31,6 +31,4 @@ public class UserModel {
 		return String.format("username=%s,password=%s,numbcode=%d", this.username, this.password, this.numbcode);
 	}
 
-
-
 }

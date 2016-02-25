@@ -47,6 +47,19 @@ public class LoginController {
 		return new ModelAndView("rs");
 	}
 
+	@RequestMapping("/vali3")
+	public ModelAndView vali3(@Valid UserModel user, BindingResult result, Model model) {
+
+		if (result.hasErrors()) {
+			user.setNumbcode(0);
+			model.addAttribute("error", result.getFieldErrors().toString());
+		}
+
+		model.addAttribute("user", user);
+
+		return new ModelAndView("rs");
+	}
+
 	@RequestMapping("/vali2")
 	public String vali2(@Valid UserModel user, BindingResult result, @Valid UserModel user1, BindingResult result2) {
 

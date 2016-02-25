@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:p="http://www.springframework.org/schema/p" xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="   
+           http://www.springframework.org/schema/beans   
+           http://www.springframework.org/schema/beans/spring-beans-4.2.xsd   
+           http://www.springframework.org/schema/context   
+           http://www.springframework.org/schema/context/spring-context-4.2.xsd  
+           http://www.springframework.org/schema/mvc   
+           http://www.springframework.org/schema/mvc/spring-mvc-4.2.xsd">
+    
+    <!-- 开启spring 上下文注解支持 -->
+	<context:annotation-config />
+	
+	<!-- 把标记了@Controller注解的类转换为bean -->
+	<context:component-scan base-package="cn.vfire.framework" />
+
+	<!-- 开启spring mvc注解支持 -->
+	<mvc:annotation-driven />
+
+	<!-- 如果当前请求为“/”时，则转发到“/helloworld/index” -->
+	<mvc:view-controller path="/" view-name="forward:/index.jsp" /> 
+
+	<!-- 设置默认的Servlet来响应静态文件 -->
+	<mvc:resources mapping="/resource" location="/resource" />
+
+	<!-- 当上面要访问的静态资源不包括在上面的配置中时，则根据此配置来访问 -->
+	<mvc:default-servlet-handler />
+	
+	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
+	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
+		
+	<!-- 默认视图解析器 -->
+	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="contentType" value="text/html" />
+		<property name="prefix" value="/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+
+</beans>

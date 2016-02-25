@@ -20,5 +20,6 @@
 
   <modules>
     <module>framework.spring</module>
+    <module>framework_spring</module>
   </modules>
 </project>
