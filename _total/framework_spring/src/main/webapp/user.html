@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试页面</title>
+<style type="text/css">
+.vform{
+    width: 24%;
+    border: 1px #CCCCCC solid;
+    font-size: 12px;
+    float: left;
+    margin: 5px;
+    padding: 5px;
+}
+.vform .h1{
+    font-weight: bold;
+    padding: 4px;
+}
+.vform input{
+    width: 120px;
+}
+</style>
+</head>
+<body>
+    <div class="vform">
+        <div class="h1">HTTP POST 添加用户 /api/userAdd.api</div>
+        <form action="/api/userAdd.api" method="post">
+            <div>用户名:<input name="username" value="xiaohong" /></div>
+            <div>姓名:<input name="name" value="小红" /></div>
+            <div>年龄:<input name="age" value="22" /></div>
+            <div>性别:<select name="sex"><option value="0" selected="selected">女</option></select></div>
+            <div><button type="submit">添加新用户</button></div>
+        </form>
+        <hr />
+    </div>
+	<div class="vform">
+        <div class="h1">HTTP GET 查询用户 /api/userQuery.api</div>
+        <form action="/api/userQuery.api" method="get">
+            <div>用户名:<input name="username" value="xiaohong" /></div>
+            <div><button type="submit">查询</button></div>
+        </form>
+        <hr />
+    </div>
+    <div class="vform">
+        <div class="h1">HTTP POST 查询用户 /api/userSave.api</div>
+        <form action="/api/userSave.api" method="post">
+            <div>用户名:<input name="username" value="xiaohong" /></div>
+            <div>姓名:<input name="name" value="小红" /></div>
+            <div>年龄:<input name="age" value="23" /></div>
+            <div>性别:<select name="sex"><option value="0" selected="selected">女</option></select></div>
+            <div><button type="submit">添加新用户</button></div>
+        </form>
+        <hr />
+    </div>  
+    <div class="vform">
+        <div class="h1">HTTP GET 查询用户 /api/userDel.api</div>
+        <form action="/api/userDel.api" method="get">
+            <div>用户名:<input name="username" value="xiaohong" /></div>
+            <div><button type="submit">添加新用户</button></div>
+        </form>
+        <hr />
+    </div>      
+</body>
+</html>

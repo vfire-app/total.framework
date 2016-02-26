@@ -8,14 +8,14 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 @RestController
-@RequestMapping("/a/")
+@RequestMapping("/")
 public class HelloWorldController {
 
 	/**
 	 * 返回视图对象
 	 * @return
 	 */
-	@RequestMapping("index.html")
+	@RequestMapping("index.do")
 	public ModelAndView index() {
 
 		ModelAndView modelAndView = new ModelAndView();

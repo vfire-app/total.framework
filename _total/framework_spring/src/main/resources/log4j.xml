@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+
+	<!-- 默认打印所有debug级别的日志 -->
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="stdout" />
+	</root>
+
+	<!-- 指定以org.springframework包开头的类中打印info级别的日志，这里控制spring框架只输入info级别的，并且appender继承staout appender。 -->
+	<category name="org.springframework">
+		<priority value="INFO" />
+		<appender-ref ref="stdout" />
+	</category>
+
+	<!-- 配置一个控制台appender stdout，将日志信息输入到控制台中。 -->
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="@%-5p|%d|%l|%t %n  Info:%m %n%n" />
+		</layout>
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<!-- <param name="LevelMax" value="ERROR" /> -->
+			<param name="LevelMin" value="DEBUG" />
+		</filter>
+	</appender>
+
+
+</log4j:configuration>
