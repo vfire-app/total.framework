@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<!-- 因为是 _total项目的子项目 -->
+		<!-- 因为是 _total项目的子项目  -->
 		<groupId>cn.vfire.frameword</groupId>
 		<artifactId>total</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
@@ -16,6 +16,11 @@
 	<name>framework_spring Maven Webapp</name>
 	<url>http://maven.apache.org</url>
 
+	<properties>
+		<org_springframework_version>4.2.4.RELEASE</org_springframework_version>
+		<com_fasterxml_jackson_version>2.6.5</com_fasterxml_jackson_version>
+	</properties>
+
 	<dependencies>
 	
 		<!-- 导入junit jar包 -->
@@ -24,6 +29,13 @@
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
+		</dependency>
+		
+		<!-- 导入@Getter @Setter自动编码工具jar -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.16.6</version>
 		</dependency>
 		
 		<!-- 导入jsp servlet规范jar包 -->
@@ -42,20 +54,99 @@
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-webmvc</artifactId>
-			<version>4.2.4.RELEASE</version>
+			<version>${org_springframework_version}</version>
 		</dependency>
 		<dependency>
 			<!-- 该jar用于spring 支持 junit测试 -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-test</artifactId>
-			<version>4.2.4.RELEASE</version>
+			<version>${org_springframework_version}</version>
 		</dependency>
+		<!-- spring-context-support，该jar引入能使spring mvc非常好的对freemark的支持 -->
 		<dependency>
-			<!-- 该jar用于spring对其他的一些工具框架的支持 -->
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
-			<version>4.2.4.RELEASE</version>
+			<version>${org_springframework_version}</version>
 		</dependency>
+		<!-- 对xml view支持 -->
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-oxm</artifactId>
+			<version>${org_springframework_version}</version>
+		</dependency>
+		<!-- 对xls view支持 -->
+		<dependency>
+			<groupId>org.apache.poi</groupId>
+			<artifactId>poi</artifactId>
+			<version>3.13</version>
+		</dependency>
+		<!-- 导入对atom,rss支持工具包 -->
+		<dependency>
+			<groupId>com.rometools</groupId>
+			<artifactId>rome</artifactId>
+			<version>1.5.1</version>
+		</dependency>
+
+
+		<!-- 导入freemarker视图解析框架jar与sprig集成 -->
+		<dependency>
+			<groupId>org.freemarker</groupId>
+			<artifactId>freemarker</artifactId>
+			<version>2.3.22</version>
+		</dependency>
+		
+		<!-- 导入log4j的jar包 -->
+		<dependency>
+			<groupId>log4j</groupId>
+			<artifactId>log4j</artifactId>
+			<version>1.2.17</version>
+		</dependency>
+		
+		<!-- 导入json工具jackson jar -->
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-core</artifactId>
+			<version>${com_fasterxml_jackson_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${com_fasterxml_jackson_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-annotations</artifactId>
+			<version>${com_fasterxml_jackson_version}</version>
+		</dependency>
+		<dependency>
+			<groupId>com.fasterxml.jackson.dataformat</groupId>
+			<artifactId>jackson-dataformat-xml</artifactId>
+			<version>${com_fasterxml_jackson_version}</version>
+		</dependency>
+		
+		<!-- 导入Gson json工具包 -->
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+			<version>2.6</version>
+		</dependency>
+
+		<!-- 导入PDF文件操作工具jar包 -->
+		<dependency>
+			<groupId>com.itextpdf</groupId>
+			<artifactId>itextpdf</artifactId>
+			<version>5.5.8</version>
+		</dependency>
+
+
+
+		<!-- _total的引用子项目 -->
+		<dependency>
+			<groupId>cn.vfire.frameword</groupId>
+			<artifactId>framework_common</artifactId>
+			<version>${project.parent.version}</version>
+		</dependency>
+
 
 	</dependencies>
 

@@ -17,7 +17,16 @@
 	<context:component-scan base-package="cn.vfire.framework" />
 
 	<!-- 开启spring mvc注解支持 -->
-	<mvc:annotation-driven />
+	<mvc:annotation-driven>
+		<mvc:message-converters register-defaults="true">
+			<bean class="cn.vfire.framework.spring.mvc.converter.GSONHttpMessageConverte">
+				<property name="excludeFieldsWithoutExposeAnnotation" value="false" />
+			</bean>
+			<bean class="cn.vfire.framework.spring.mvc.converter.PDFHttpMessageConverte">
+				<property name="excludeFieldsWithoutExposeAnnotation" value="false" />
+			</bean>
+		</mvc:message-converters>
+	</mvc:annotation-driven>
 
 	<!-- 如果当前请求为“/”时，则转发到“/helloworld/index” -->
 	<mvc:view-controller path="/" view-name="forward:/index.jsp" /> 
@@ -30,12 +39,5 @@
 	
 	<!-- 启动Spring MVC的注解功能，完成请求和注解POJO的映射 -->
 	<bean class="org.springframework.web.servlet.mvc.annotation.AnnotationMethodHandlerAdapter" />
-		
-	<!-- 默认视图解析器 -->
-	<bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-		<property name="contentType" value="text/html" />
-		<property name="prefix" value="/" />
-		<property name="suffix" value=".jsp" />
-	</bean>
 
 </beans>

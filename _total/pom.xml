@@ -19,7 +19,8 @@
   </properties>
 
   <modules>
-    <module>framework.spring</module>
     <module>framework_spring</module>
+    <module>framework_freemarker</module>
+    <module>framework_common</module>
   </modules>
 </project>

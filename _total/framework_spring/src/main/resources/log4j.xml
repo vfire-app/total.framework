@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j='http://jakarta.apache.org/log4j/'>
+	
+	<!-- 指定以org.springframework包开头的类中打印info级别的日志，这里控制spring框架只输入info级别的，并且appender继承staout appender。 -->
+	<!--
+	<category name="org.springframework">
+		<priority value="DEBUG" />
+		<appender-ref ref="stdout" />
+	</category>
+	-->
+	
+	<!-- 默认打印所有debug级别的日志 -->
+	<root>
+		<priority value="DEBUG" />
+		<appender-ref ref="stdout" />
+		<appender-ref ref="framework_spring" />
+	</root>
+	
+	<!-- 配置一个文件日志，框架以及第三方jar的日志集中打印到此日志文件中=。 -->
+	<!-- 指定以org.springframework包开头的类中打印DEBUG级别的日志。 -->
+	<logger name="org.springframework" additivity="false">       
+        <priority value ="DEBUG"/>         
+        <appender-ref ref="framework_spring_console" />         
+    </logger>	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	<!-- 配置一个控制台appender stdout，将日志信息输入到控制台中。 -->
+	<appender name="stdout" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="@%-5p|%d|%l|%t %n  Info:%m %n%n" />
+		</layout>
+		<!--过滤器设置输出的级别-->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="DEBUG" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+
+	<!-- 配置一个文件日志，框架以及第三方jar的日志集中打印到此日志文件中=。 -->
+	<appender name="framework_spring" class="org.apache.log4j.RollingFileAppender">
+		<!-- 设置日志输出文件名 -->  
+		<param name="File" value="/logs/framework_spring.log" />     
+        <!-- 设置是否在重新启动服务时，在原有日志的基础添加新日志 -->
+		<param name="Append" value="false" />
+		<!-- MaxBackupIndex备份日志文件的个数（默认是1个）             <param name="MaxBackupIndex" value="1" /> -->
+		<!-- MaxFileSize表示日志文件允许的最大字节数（默认是10M） <param name="MaxFileSize" value="1048576" /> -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="@%-5p|%d|%l|%t %n  Info:%m %n%n" />
+		</layout>
+	</appender>
+	
+	<!-- 配置一个文件日志，框架以及第三方jar的日志集中打印到此日志文件中=。 -->
+	<appender name="framework_spring_console" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="@%-5p|%d|%l|%t %n  Info:%m %n%n" />
+		</layout>
+		<!--过滤器设置输出的级别-->
+		<filter class="org.apache.log4j.varia.LevelRangeFilter">
+			<param name="levelMin" value="DEBUG" />
+			<param name="AcceptOnMatch" value="true" />
+		</filter>
+	</appender>
+
+
+
+</log4j:configuration>

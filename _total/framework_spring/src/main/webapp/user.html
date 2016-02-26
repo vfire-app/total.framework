@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>测试页面</title>
+<style type="text/css">
+.vtype1 {
+	background-color: #EEEEEE;
+     overflow:hidden;
+}
+
+.vtype2 {
+	background-color: #EEEEDD;
+    overflow:hidden;
+}
+
+.vform {
+	width: 20%;
+    min-width:190px;
+	border: 1px #CCCCCC solid;
+	font-size: 12px;
+	float: left;
+	margin: 5px;
+	padding: 5px;
+}
+
+.vform .h1 {
+	font-weight: bold;
+	padding: 4px;
+}
+
+.vform input,select {
+	width: 120px;
+    position: relative;
+    left: 20px;
+}
+button{
+    position: relative;
+    left: 50%;
+    width: 90px;
+    margin: 10px;
+}
+.clearfloat {
+    clear: both;
+}
+
+</style>
+</head>
+<body>
+    <div class="vtype1">
+        <div class="vform">
+            <div class="h1">HTTP POST 添加用户 /api/userAdd.api</div>
+            <form action="/api/userAdd.api" method="post">
+                <div>
+                    <label>用户名:<input name="username" id="username" value="xiaohong" /></label>
+                </div>
+                <div>
+                    <label>姓名:<input name="name" value="小红" /></label>
+                </div>
+                <div>
+                   <label>年龄:<input name="age" value="22" /></label>
+                </div>
+                <div>
+                    <label>性别:<select name="sex"><option value="0" selected="selected">女</option></select></label>
+                </div>
+                <div>
+                    <button type="submit">添加新用户</button>
+                </div>
+            </form>
+            <hr />
+        </div>
+        <div class="vform">
+            <div class="h1">HTTP GET 查询用户 /api/userQuery.api</div>
+            <form action="/api/userQuery.api" method="get">
+                <div>
+                    <label>用户名:<input name="username" value="xiaohong" /></label>
+                </div>
+                <div>
+                    <button type="submit">查询</button>
+                </div>
+            </form>
+            <hr />
+        </div>
+        <div class="vform">
+            <div class="h1">HTTP POST 查询用户 /api/userSave.api</div>
+            <form action="/api/userSave.api" method="post">
+                <div>
+                   <label> 用户名:<input name="username" value="xiaohong" /></label>
+                </div>
+                <div>
+                    <label>姓名:<input name="name" value="小红" /></label>
+                </div>
+                <div>
+                    <label>年龄:<input name="age" value="23" /></label>
+                </div>
+                <div>
+                   <label> 性别:<select name="sex"><option value="0" selected="selected">女</option></select></label>
+                </div>
+                <div>
+                    <button type="submit">添加新用户</button>
+                </div>
+            </form>
+            <hr />
+        </div>
+        <div class="vform">
+            <div class="h1">HTTP GET 查询用户 /api/userDel.api</div>
+            <form action="/api/userDel.api" method="get">
+                <div>
+                   <label> 用户名:<input name="username" value="xiaohong" /></label>
+                </div>
+                <div>
+                    <button type="submit">添加新用户</button>
+                </div>
+            </form>
+            <hr />
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+    <div class="vtype2">
+        <div class="vform">
+            <div class="h1">HTTP POST 添加用户 /api/userAdd.gson</div>
+            <form action="/api/userAdd.gson" method="post">
+                <div>
+                    <label>用户名:<input name="username" value="xiaohong" /></label>
+                </div>
+                <div>
+                   <label> 姓名:<input name="name" value="小红" /></label>
+                </div>
+                <div>
+                    <label>年龄:<input name="age" value="22" /></label>
+                </div>
+                <div>
+                    <label>性别:<select name="sex"><option value="0" selected="selected">女</option></select></label>
+                </div>
+                <div>
+                    <button type="submit">添加新用户</button>
+                </div>
+            </form>
+            <hr />
+        </div>
+
+        <div class="vform">
+            <div class="h1">HTTP GET 查询用户 /api/userQuery.gson</div>
+            <form action="/api/userQuery.gson" method="get">
+                <div>
+                   <label> 用户名:<input name="username" value="xiaohong" /></label>
+                </div>
+                <div>
+                    <button type="submit">查询</button>
+                </div>
+            </form>
+            <hr />
+        </div>
+        <div class="clearfloat"></div>
+    </div>
+</body>
+</html>
