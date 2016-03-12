@@ -1,4 +1,4 @@
-package cn.vfire.frameword.common.util.properties;
+package cn.vfire.common.util.properties;
 
 import java.io.BufferedReader;
 import java.io.File;
